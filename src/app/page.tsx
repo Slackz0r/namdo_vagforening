@@ -1,21 +1,9 @@
 import Image from "next/image";
-import { SiteContainer } from "@/components/site-container";
+import SiteContainer from "@/components/site-container";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      <header>
-        <SiteContainer>
-          <nav aria-label="Huvudmeny">
-            <ul role="list">
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </nav>
-        </SiteContainer>
-      </header>
-
       <main className="bg-background text-foreground">
         <SiteContainer>
           <section>
