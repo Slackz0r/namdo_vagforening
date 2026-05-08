@@ -1,5 +1,7 @@
 import Image from "next/image";
 import SiteContainer from "@/components/site-container";
+import { updates } from "@/content/updates";
+import { formatDate } from "@/utils/dateUtils";
 
 export default function HomePage() {
   return (
@@ -40,6 +42,20 @@ export default function HomePage() {
               föreningen, vilket har fastställts av Lantmäteriet. Fastighetsägare kan heller inte
               utträda ur föreningen men välkomnas att göra sin röst hörd under årsstämman.
             </p>
+          </section>
+
+          <section>
+            <h2>Senaste informationen</h2>
+
+            <ul className="grid gap-4">
+              {updates.map(({ title, date, href, summary }) => (
+                <li key={title} className="bg-surface p-2 shadow-(--shadow-small)">
+                  <h3>{title}</h3>
+                  <time dateTime={date}>{formatDate(date)}</time>
+                  <p>{summary}</p>
+                </li>
+              ))}
+            </ul>
           </section>
         </SiteContainer>
       </main>
