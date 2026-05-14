@@ -6,6 +6,7 @@ export type NavigationItem = {
 export const mainNavigation: NavigationItem[] = [
   { label: "Start", href: "/" },
   { label: "Aktuella projekt", href: "/projects" },
+  { label: "Protokoll", href: "/protocols" },
   { label: "Stadgar", href: "/statutes" },
   { label: "Karta", href: "/map" },
   { label: "Kontakt", href: "/contact" },

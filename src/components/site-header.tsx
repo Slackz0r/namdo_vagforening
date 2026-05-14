@@ -5,21 +5,21 @@ import SiteContainer from "./site-container";
 
 export default function SiteHeader() {
   return (
-    <header className="border-b border-border bg-surface/95">
-      <SiteContainer className="flex flex-col gap-4 py-3 md:flex-row md:items-center md:justify-between">
+    <header className="border-b border-border bg-surface/95 sticky top-0 z-999">
+      <SiteContainer className="flex flex-col gap-4 py-2 md:flex-row md:items-center md:justify-between">
         <Link
           className="inline-flex w-fit items-center text-foreground transition hover:text-primary"
           href="/"
         >
           <Image
-            src="/svg/compass.svg"
+            src="/svg/island_outline_logo.svg"
             alt=""
             aria-hidden="true"
-            width={44}
-            height={44}
-            className="h-11 w-11"
+            width={100}
+            height={100}
+            className="h-19 w-19 text-primary"
           />
-          <span className="sr-only">Nordöstra Nämdö Samfällighetsförening</span>
+          <span className="sr-only">Nordöstra Nämdös Samfällighetsförening</span>
         </Link>
 
         <nav aria-label="Huvudmeny">
