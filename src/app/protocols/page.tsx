@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import InfoCard from "@/components/info-card";
 import PageHeader from "@/components/page-header";
 import SiteContainer from "@/components/site-container";
 import { meetingProtocols } from "@/content/meetings";
@@ -30,28 +30,13 @@ export default function ProtocolsPage() {
             <ul className="space-y-4">
               {meetingProtocols.map((meeting) => (
                 <li key={meeting.id}>
-                  <Link
-                    className="group block rounded-xl border border-border bg-surface p-5 shadow-sm transition hover:border-primary hover:bg-surface-muted hover:shadow-small"
+                  <InfoCard
+                    title={meeting.title}
                     href={`/protocols/${meeting.id}`}
+                    meta={<time dateTime={meeting.date}>{formatDate(meeting.date)}</time>}
                   >
-                    <article className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h3 className="text-xl font-semibold leading-tight text-foreground group-hover:text-primary">
-                          {meeting.title}
-                        </h3>
-                        <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
-                          {meeting.protocol.intro}
-                        </p>
-                      </div>
-
-                      <time
-                        className="w-fit shrink-0 rounded-full bg-surface-muted px-3 py-1 text-sm font-medium text-muted-foreground"
-                        dateTime={meeting.date}
-                      >
-                        {formatDate(meeting.date)}
-                      </time>
-                    </article>
-                  </Link>
+                    <p>{meeting.protocol.intro}</p>
+                  </InfoCard>
                 </li>
               ))}
             </ul>

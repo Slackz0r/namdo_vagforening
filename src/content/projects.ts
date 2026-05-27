@@ -18,6 +18,13 @@ export const bridgeProject = {
     src: "/images/NB W-brygga 2.JPG",
     alt: "Vy från Nämdö Böte brygga över vattnet.",
   },
+  roadmap: {
+    title: "Processöversikt",
+    description:
+      "Översikten visar projektets huvudsakliga steg, kontaktytor, finansieringsspår och planerade väg framåt för renoveringen.",
+    src: "/documents/processoversikt-namdo-bote-trafikbrygga.pdf",
+    linkLabel: "Öppna processöversikten som PDF",
+  },
   sections: [
     {
       heading: "Bakgrund",

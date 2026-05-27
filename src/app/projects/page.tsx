@@ -7,8 +7,7 @@ import { bridgeProject } from "@/content/projects";
 
 export const metadata: Metadata = {
   title: "Aktuella projekt",
-  description:
-    "Statusrapport våren 2026 om renoveringen av Nämdö Böte trafikbrygga.",
+  description: "Statusrapport våren 2026 om renoveringen av Nämdö Böte trafikbrygga.",
 };
 
 export default function ProjectsPage() {
@@ -38,7 +37,10 @@ export default function ProjectsPage() {
               className="max-w-3xl space-y-6 rounded-xl border border-border bg-surface p-6 shadow-sm md:p-8"
             >
               {bridgeProject.sections.map(({ heading, paragraphs, items }) => (
-                <section key={heading} aria-labelledby={`${heading.toLowerCase().replaceAll(" ", "-")}-heading`}>
+                <section
+                  key={heading}
+                  aria-labelledby={`${heading.toLowerCase().replaceAll(" ", "-")}-heading`}
+                >
                   <h2
                     id={`${heading.toLowerCase().replaceAll(" ", "-")}-heading`}
                     className="text-2xl font-semibold leading-tight text-foreground"
@@ -65,6 +67,58 @@ export default function ProjectsPage() {
 
             <ProjectSummaryCard title="Projektstatus" items={bridgeProject.summary} />
           </div>
+
+          <section
+            aria-labelledby="project-roadmap-heading"
+            className="mt-10 rounded-xl border border-border bg-surface p-6 shadow-sm md:p-8"
+          >
+            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase text-muted-foreground">
+                  Projektets väg framåt
+                </p>
+
+                <h2
+                  id="project-roadmap-heading"
+                  className="mt-2 text-2xl font-semibold leading-tight text-foreground"
+                >
+                  {bridgeProject.roadmap.title}
+                </h2>
+
+                <p className="mt-3 leading-8 text-muted-foreground">
+                  {bridgeProject.roadmap.description}
+                </p>
+              </div>
+
+              <a
+                className="inline-flex w-fit rounded-md border border-border px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-sky"
+                href={bridgeProject.roadmap.src}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {bridgeProject.roadmap.linkLabel}
+              </a>
+            </div>
+
+            <div className="overflow-hidden rounded-lg border border-border bg-surface-muted">
+              <object
+                aria-label="Processöversikt för renoveringen av Nämdö Böte trafikbrygga"
+                className="aspect-video w-full"
+                data={`${bridgeProject.roadmap.src}#toolbar=0&navpanes=0&view=FitH`}
+                type="application/pdf"
+              >
+                <p className="p-6 leading-7 text-muted-foreground">
+                  Processöversikten kan inte visas direkt i webbläsaren.
+                  <a
+                    className="ml-1 font-semibold text-primary hover:underline"
+                    href={bridgeProject.roadmap.src}
+                  >
+                    Öppna PDF-filen här.
+                  </a>
+                </p>
+              </object>
+            </div>
+          </section>
         </article>
       </SiteContainer>
     </main>

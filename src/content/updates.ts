@@ -14,8 +14,8 @@ export const updates: Update[] = [
   },
   {
     title: "Information om sophämtning",
-    date: "2025-04-02",
-    href: "/",
-    summary: "Information och regler gällande sophämtning",
+    date: "2026-05-27",
+    href: "/information#sophamtning",
+    summary: "Hämtningsveckor 2026 samt tider för Grovsopfärjan vid Östanviks brygga.",
   },
 ];

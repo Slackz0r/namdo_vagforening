@@ -10,21 +10,37 @@ type InfoCardProps = {
 };
 
 export default function InfoCard({ title, children, href, meta, className = "" }: InfoCardProps) {
-  return (
-    <article className={`rounded-xl border border-border bg-surface p-6 shadow-sm ${className}`}>
+  const cardClassName = `rounded-xl border border-border bg-surface p-6 shadow-sm ${
+    href
+      ? "group block transition hover:border-primary hover:bg-surface-muted hover:shadow-small"
+      : ""
+  } ${className}`;
+
+  const content = (
+    <>
       {meta ? <div className="mb-3 text-sm font-medium text-muted-foreground">{meta}</div> : null}
 
-      <h3 className="text-xl font-semibold leading-7">
-        {href ? (
-          <Link className="text-primary underline-offset-4 hover:underline" href={href}>
-            {title}
-          </Link>
-        ) : (
-          title
-        )}
+      <h3
+        className={`text-xl font-semibold leading-7 ${
+          href ? "text-foreground transition group-hover:text-primary" : ""
+        }`}
+      >
+        {title}
       </h3>
 
       <div className="mt-3 leading-7 text-muted-foreground">{children}</div>
-    </article>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link className={cardClassName} href={href}>
+        <article>{content}</article>
+      </Link>
+    );
+  }
+
+  return (
+    <article className={cardClassName}>{content}</article>
   );
 }
